@@ -13,7 +13,7 @@ export default function App() {
       <Container fluid>
         <Row>
           <Col sm={1} className="left_container">
-            Left
+            <button>OP section</button>
           </Col>
           <Col sm={11}>
             <Carousel />
