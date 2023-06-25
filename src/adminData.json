@@ -1,11 +1,20 @@
-{
-  "Financial": [
-    "Staff selaries",
-    "Patiants recovery",
-    "Expences report",
-    "Medical Report"
-  ],
-  "Patient": ["Patient full details"],
-  "Staff": ["Doctors details", "Nursing details", "work sheet"],
-  "Management": ["Detail data", "Add staff", "Edit staff"]
-}
+[
+  {
+    "type": "Financial",
+    "modules": [
+      "Staff selaries",
+      "Patiants recovery",
+      "Expences report",
+      "Medical Report"
+    ]
+  },
+  {
+    "type": "Patient",
+    "modules": ["Patient full details"]
+  },
+  {
+    "type": "Staff",
+    "module": ["Doctors details", "Nursing details", "work sheet"]
+  },
+  { "type": "Management", "module": ["Detail data", "Add staff", "Edit staff"] }
+]

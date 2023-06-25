@@ -25,7 +25,7 @@ export default function App() {
       { one: 'one1', two: 'two2', three: 'three3', four: 'four4' },
     ],
   };
-  console.log('adminData', adminData);
+  console.log('adminData', adminData);    
   return (
     <div>
       <Navbar />
