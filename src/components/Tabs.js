@@ -4,7 +4,7 @@ import Tabs from 'react-bootstrap/Tabs';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function JustifiedExample({ data }) {
-  console.log('data', data);
+  console.log('data-->', data);
   return (
     <Tabs
       defaultActiveKey={data.defaultTab}
@@ -14,7 +14,7 @@ function JustifiedExample({ data }) {
     >
       {data.tabsInfo.map((item) => (
         <Tab eventKey={item.tabName} title={item.tabName}>
-          {item.discription}
+          {/* {item.discription} */}
         </Tab>
       ))}
       {/* <Tab eventKey="home" title="Home">

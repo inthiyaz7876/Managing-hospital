@@ -1,10 +1,15 @@
 import React from 'react';
 import ReactButton from './Button';
 
-function LeftContainer({ leftData, onClick, color }) {
+function LeftContainer({ leftData, onClick, color, classText }) {
   return (
     <>
-      <ReactButton onClick={onClick} variant={color} ButtonName={leftData} />
+      <ReactButton
+        onClick={onClick}
+        classText={classText}
+        variant={color}
+        ButtonName={leftData}
+      />
     </>
   );
 }

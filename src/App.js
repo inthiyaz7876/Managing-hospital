@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import './style.css';
 import Carousel from './components/Carousel';
@@ -11,14 +11,10 @@ import LeftContainer from './components/LeftContainer';
 
 export default function App() {
   const tabsData = {
-    defaultTab: 'profile',
-    tabsInfo: [
-      { tabName: 'profile', discription: <h1>Hello Profile</h1> },
-      { tabName: 'home', discription: 'Hello Home' },
-      { tabName: 'new', discription: <h1>Hello New</h1> },
-      { tabName: 'more', discription: <h1>Hello More</h1> },
-    ],
+    defaultTab: 'StaffSelaries',
+    tabsInfo: adminData.default.Financial,
   };
+  const testtabs = {};
   const tableData = {
     headers: ['One', 'Two', 'Three', 'Four'],
     data: [
@@ -26,13 +22,24 @@ export default function App() {
       { one: 'one1', two: 'two2', three: 'three3', four: 'four4' },
     ],
   };
+  const leftMenuAdminData = Object.keys(adminData.default);
+
+  const [tabsText, setTabsText] = useState(adminData.default);
+  const [tabsDevider, setTabsDevider] = useState(tabsData);
+  useEffect(() => {}, [tabsDevider]);
+
   console.log('adminData', adminData);
-  const leftMenuAdminData = Object.keys(adminData);
+
   console.log('jiji', leftMenuAdminData);
-  const controllLeftMenu = (item) => {
-    console.log('controllLeftMenu', item);
+  const controllLeftMenu = (e, item) => {
+    console.log('clicked', e.target.name);
+    testtabs.tabsInfo = tabsText[e.target.name];
+    testtabs.defaultTab = testtabs.tabsInfo[0];
+
+    setTabsDevider(testtabs);
   };
 
+  console.log('testtabs', tabsDevider);
   return (
     <div>
       <Navbar />
@@ -44,13 +51,14 @@ export default function App() {
               leftMenuAdminData.map((item) => (
                 <LeftContainer
                   leftData={item}
-                  onClick={(item) => controllLeftMenu(item)}
+                  onClick={(e, item) => controllLeftMenu(e, item)}
                   color={'info'}
+                  classText={'leftMenuButtons'}
                 />
               ))}
           </Col>
           <Col sm={10}>
-            <JustifiedExample data={tabsData} />
+            <JustifiedExample data={tabsDevider} />
             <ResponsiveExample data={tableData} />
           </Col>
         </Row>

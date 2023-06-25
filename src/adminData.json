@@ -1,11 +1,11 @@
 {
   "Financial": [
-    "Staff selaries",
-    "Patiants recovery",
-    "Expences report",
-    "Medical Report"
+    "StaffSelaries",
+    "PatiantsRecovery",
+    "ExpencesReport",
+    "MedicalReport"
   ],
-  "Patient": ["Patient full details"],
-  "Staff": ["Doctors details", "Nursing details", "work sheet"],
-  "Management": ["Detail data", "Add staff", "Edit staff"]
+  "Patient": ["PatientTable"],
+  "Staff": ["DoctorsInfo", "NursingInfo", "WorkSheet"],
+  "Management": ["DetailData", "AddStaff", "EditStaff"]
 }
