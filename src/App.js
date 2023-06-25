@@ -6,8 +6,9 @@ import { Carousel, Row, Col, Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ResponsiveExample from './components/Table';
 import JustifiedExample from './components/Tabs';
-import ReactButton from './components/Button';
 import * as adminData from './adminData';
+import LeftContainer from './components/LeftContainer';
+
 export default function App() {
   const tabsData = {
     defaultTab: 'profile',
@@ -25,7 +26,13 @@ export default function App() {
       { one: 'one1', two: 'two2', three: 'three3', four: 'four4' },
     ],
   };
-  console.log('adminData', adminData);    
+  console.log('adminData', adminData);
+  const leftMenuAdminData = Object.keys(adminData);
+  console.log('jiji', leftMenuAdminData);
+  const controllLeftMenu = (item) => {
+    console.log('controllLeftMenu', item);
+  };
+
   return (
     <div>
       <Navbar />
@@ -33,11 +40,14 @@ export default function App() {
       <Container fluid>
         <Row style={{ height: '97vh' }}>
           <Col sm={2} className="left_container">
-            <ReactButton
-              onClick={() => buttonClicked()}
-              variant={'info'}
-              ButtonName={'Mybutton'}
-            />
+            {leftMenuAdminData.length !== 0 &&
+              leftMenuAdminData.map((item) => (
+                <LeftContainer
+                  leftData={item}
+                  onClick={(item) => controllLeftMenu(item)}
+                  color={'info'}
+                />
+              ))}
           </Col>
           <Col sm={10}>
             <JustifiedExample data={tabsData} />
